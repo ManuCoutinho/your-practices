@@ -4,11 +4,11 @@ import { appRoutes } from './routes/routes'
 
 const app = Fastify()
 
-app.register(cors)
+app.register(cors) //update cors policy
 app.register(appRoutes)
 
 app
   .listen({
-    port: 3333
+    port: 4800
   })
-  .then(() => console.log('HTTP Server is running on PORT 3333 🚀'))
+  .then(() => console.log('HTTP Server is running on PORT 4800 🚀'))

@@ -28,6 +28,6 @@ export async function appRoutes(app: FastifyInstance) {
       }
     })
 
-    return {}
+    return response.status(201).send({})
   })
 }

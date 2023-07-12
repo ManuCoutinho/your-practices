@@ -1,8 +1,8 @@
 {
   "name": "your-practices",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Server for app Your Practices",
-  "main": "index.js",
+  "main": "server.ts",
   "repository": {
     "type": "git",
     "url": "https://github.com/ManuCoutinho/"
@@ -10,8 +10,8 @@
   "author": "Emanuela Coutinho",
   "license": "MIT",
   "engines": {
-    "node": "^16.15.1 || >=18.13.0",
-    "npm": "^8.11.0 || 8.19.3"
+    "node": ">=18.16.0",
+    "npm": "^9.5.1"
   },
   "keywords": [
     "node",
@@ -34,7 +34,7 @@
   },
   "dependencies": {
     "@fastify/cors": "^8.2.0",
-    "@prisma/client": "^4.9.0",
+    "@prisma/client": "^5.0.0",
     "dayjs": "^1.11.7",
     "fastify": "^4.11.0",
     "zod": "^3.20.2"
@@ -49,9 +49,9 @@
     "husky": "^8.0.0",
     "lint-staged": "^13.1.0",
     "prettier": "^2.8.3",
-    "prisma": "^4.8.1",
-    "prisma-erd-generator": "^1.2.4",
-    "semantic-release": "^20.0.2",
+    "prisma": "^5.0.0",
+    "prisma-erd-generator": "^1.8.0",
+    "semantic-release": "^21.0.7",
     "tsx": "^3.12.2",
     "typescript": "^4.9.4"
   },

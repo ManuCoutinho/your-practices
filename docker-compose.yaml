@@ -1,0 +1,48 @@
+version: '3.9'
+
+services:
+  postgres:
+    image: postgres:latest
+    container_name: postgres
+    hostname: postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_USER: root
+      POSTGRES_DB: Habit
+    volumes:
+      - ./docker/postgres:/docker-entrypoint-initdb.d
+    ports:
+      - 5432:5432
+  
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pgadmin4
+    depends_on:
+      - postgres
+    ports:
+      - "5555:80"
+    environment:
+      PGADMIN_DEFAULT_EMAIL: pgadmin@pgadmin.org
+      PGADMIN_DEFAULT_PASSWORD: admin
+    volumes:
+      - pgadmin-data:/var/lib/pgadmin:Z
+    restart: unless-stopped
+  
+  server:
+    stdin_open: true
+    container_name: server
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      - postgres
+    ports:
+      - "4800:4800"
+    volumes:
+      - server-data:/var/lib/server-data:Z
+    restart: always
+
+volumes:
+  pgadmin-data:
+  server-data:
